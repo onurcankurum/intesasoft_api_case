@@ -2,16 +2,16 @@ class CitiesModel {
   CitiesModel({
     required this.name,
     required this.created,
-    required this.description,
-    required this.image,
-    required this.populations,
+     this.description,
+     this.image,
+     this.populations,
     required this.id,
   });
   late final String name;
   late final String created;
-  late final String description;
-  late final String image;
-  late final List<Populations> populations;
+  String? description;
+  String? image;
+  List<Populations>? populations;
   late final String id;
   
   CitiesModel.fromJson(Map<String, dynamic> json){
@@ -29,7 +29,7 @@ class CitiesModel {
     _data['created'] = created;
     _data['description'] = description;
     _data['image'] = image;
-    _data['populations'] = populations.map((e)=>e.toJson()).toList();
+    _data['populations'] = populations==null? null: populations!.map((e)=>e.toJson()).toList();
     _data['id'] = id;
     return _data;
   }

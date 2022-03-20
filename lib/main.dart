@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:intesasoft/views/home.dart';
+import 'package:intesasoft/views/cities_list.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme/theme.dart';
-import 'view_models/home_vm.dart';
+import 'view_models/cities_list_vm.dart';
+import 'view_models/city_detailed_vm.dart';
 
 void main() {
   runApp(MultiProvider(
     providers: [
         ChangeNotifierProvider(
-              create: (_) => CitiesViewModel(),
+              create: (_) => CitiesListViewModel(),
+            ),
+              ChangeNotifierProvider(
+              create: (_) => CityDetailedViewModel(),
             )
     ],
 
@@ -24,7 +28,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:const HomeView(),
+      home:const CitiesList(),
       theme: AppThemeLight.instance.theme
 
     );

@@ -14,10 +14,18 @@ class AppThemeLight {
   }
 
   ThemeData get theme => ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFfaefef),
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
-        backgroundColor: Colors.red, // Status bar color
-        iconTheme: const IconThemeData(color: Colors.black54));
+      scaffoldBackgroundColor: const Color(0xFFfaefef),
+      primaryColorDark: const Color(0xFFad5552),
+      appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: IconThemeData(color: Colors.black54, size: 35)),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                  side: const BorderSide(color: Colors.red)),
+              primary: const Color(0xFFe40022))));
 
   AppThemeLight._init();
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/cities_list_vm.dart';
-import '../widgets/components/appbar.dart';
 import '../widgets/drawer_widgets/drawer_list_tile.dart';
 import '../widgets/drawer_widgets/drawer_text_field.dart';
 import '../widgets/cards/white_surface.dart';
+import '../widgets/others/appbar.dart';
 import '../widgets/others/city_list_tile.dart';
 import '../widgets/others/search_city_text_field.dart';
 
@@ -18,6 +20,21 @@ class CitiesList extends StatefulWidget {
 
 class _CitiesListState extends State<CitiesList> {
   late CitiesListViewModel viewModel;
+  TextEditingController filterController = TextEditingController(text:"");
+
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+    if (!mounted) return;
+     filterController.text = barcodeScanRes;
+     viewModel.filterCities(barcodeScanRes);
+  }
+
 
   @override
   void initState() {
@@ -79,6 +96,7 @@ class _CitiesListState extends State<CitiesList> {
             child: Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: SearchCityTextField(
+                controller: filterController,
                 onChange: viewModel.filterCities,
               ),
             ),
@@ -86,7 +104,9 @@ class _CitiesListState extends State<CitiesList> {
           Expanded(
               flex: 1,
               child: (IconButton(
-                  onPressed: () {},
+                  onPressed: ()async {
+                   await scanQR();
+                  },
                   icon: const Icon(
                     Icons.camera_alt_outlined,
                     size: 35,

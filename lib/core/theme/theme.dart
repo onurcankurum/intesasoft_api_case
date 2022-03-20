@@ -16,6 +16,9 @@ class AppThemeLight {
   ThemeData get theme => ThemeData(
       scaffoldBackgroundColor: const Color(0xFFfaefef),
       primaryColorDark: const Color(0xFFad5552),
+      colorScheme: ColorScheme.fromSwatch(
+        accentColor: Colors.red, // but now it should be declared like this
+      ),
       appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 0,

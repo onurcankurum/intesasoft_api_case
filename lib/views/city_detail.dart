@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:intesasoft/widgets/components/appbar.dart';
-import 'package:intesasoft/widgets/cards/white_surface.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/constants.dart';
 import '../utils/enums.dart';
 import '../view_models/city_detailed_vm.dart';
+import '../widgets/cards/white_surface.dart';
+import '../widgets/others/appbar.dart';
 
 
 class CityDetailed extends StatefulWidget {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:intesasoft/models/cities.dart';
-import 'package:intesasoft/utils/constants.dart';
-import 'package:intesasoft/views/city_detail.dart';
+
+import '../../models/cities.dart';
+import '../../utils/constants.dart';
+import '../../views/city_detail.dart';
+
 
 class CityListTile extends StatefulWidget {
   final CitiesModel model;

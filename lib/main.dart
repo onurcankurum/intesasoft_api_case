@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intesasoft/views/cities_list.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme/theme.dart';
 import 'view_models/cities_list_vm.dart';
 import 'view_models/city_detailed_vm.dart';
+import 'views/cities_list.dart';
 
 void main() {
   runApp(MultiProvider(

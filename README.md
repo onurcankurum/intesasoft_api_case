@@ -9,12 +9,15 @@ flutter pub get
 flutter run
 ```
 ## screen views
-<br>
-<img src="readme_assets/filter.gif" width="250">
+<p align="center">
+  <img src="readme_assets/filter.gif" width="250">
 <img src="readme_assets/detail_page.gif" width="250">
 <img src="readme_assets/filter_with_qr.gif" width="250">
 <img src="readme_assets/drawer.jpg" width="250">
 <img src="readme_assets/example_qr.PNG" width="250">
+</p>
+<br>
+
 
 
 
